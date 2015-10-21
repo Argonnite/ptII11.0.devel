@@ -1,0 +1,12 @@
+<property name="documentation" class="ptolemy.vergil.basic.DocAttribute">
+    <property name="author" class="ptolemy.kernel.util.StringAttribute" value="Edward A. Lee">
+    </property>
+    <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&lt;p&gt;Retrieve weather information for a given location using&#10; http://openweathermap.org .&#10; The location input is given as an object with two numeric fields,&#10; &amp;quot;latitude&amp;quot; and &amp;quot;longitude&amp;quot;. The default is&#10; &lt;code&gt;{&amp;quot;latitude&amp;quot;: 37.85, &amp;quot;longitude&amp;quot;: -122.26}&lt;/code&gt;, which is&#10; the location of Berkeley, California.&lt;/p&gt;&#10;&lt;p&gt; This accessor requires a &amp;quot;key&amp;quot; for the API, which you can&#10; obtain for free at http://openweathermap.org/appid .&lt;/p&gt;">
+    </property>
+    <property name="location (port)" class="ptolemy.kernel.util.StringAttribute" value="undefined The location, an object with two fields (default is Berkeley).">
+    </property>
+    <property name="response (port)" class="ptolemy.kernel.util.StringAttribute" value="undefined An object containing current weather data.">
+    </property>
+    <property name="version" class="ptolemy.kernel.util.StringAttribute" value="$Id: Weather.js 332 2015-10-16 01:39:26Z eal $">
+    </property>
+</property>

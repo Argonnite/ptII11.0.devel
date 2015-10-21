@@ -1,0 +1,12 @@
+<property name="documentation" class="ptolemy.vergil.basic.DocAttribute">
+    <property name="author" class="ptolemy.kernel.util.StringAttribute" value="Hokeun Kim">
+    </property>
+    <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&lt;p&gt;UDP socket accessor.&#10; This accessor listens to the UDP port, and outputs whatever arrives as a string.&lt;/p&gt;">
+    </property>
+    <property name="port (port)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;int&quot;]}) The port to use for the socket.">
+    </property>
+    <property name="received (port)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;string&quot;]}) The received string.">
+    </property>
+    <property name="version" class="ptolemy.kernel.util.StringAttribute" value="$$Id: UDPSocket.js 292 2015-09-01 14:16:50Z eal $$">
+    </property>
+</property>

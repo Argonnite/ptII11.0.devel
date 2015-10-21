@@ -1,0 +1,24 @@
+<property name="documentation" class="ptolemy.vergil.basic.DocAttribute">
+    <property name="author" class="ptolemy.kernel.util.StringAttribute" value="Anne H. Ngu (angu@btxstate.edu)">
+    </property>
+    <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&lt;p&gt;This is the interface specification of a global sensor network service (GSN)&lt;/p&gt;">
+    </property>
+    <property name="sound (port)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;JSON&quot;]}) is the data retrieved and is &#10;         structured as {content, name, type, unit}">
+    </property>
+    <property name="sensorName (port)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;string&quot;]}) is the name of the sensor e.g. phidget sensor">
+    </property>
+    <property name="host (parameter)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;string&quot;]}) is the ip address of the server hosting the service">
+    </property>
+    <property name="port (parameter)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;int&quot;]}) is the port number of host">
+    </property>
+    <property name="protocol (parameter)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;string&quot;]}) is the communication protocol used.">
+    </property>
+    <property name="username (parameter)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;string&quot;]}) is the login account name for the service">
+    </property>
+    <property name="password (parameter)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;string&quot;]}) is the password for the login account">
+    </property>
+    <property name="method (parameter)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;string&quot;]}) is the http request method">
+    </property>
+    <property name="version" class="ptolemy.kernel.util.StringAttribute" value="$$Id: GSNInterface.js 330 2015-10-06 23:08:09Z angu@txstate.edu $$">
+    </property>
+</property>

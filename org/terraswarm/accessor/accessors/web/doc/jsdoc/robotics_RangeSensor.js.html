@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: robotics/RangeSensor.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: robotics/RangeSensor.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// Copyright (c) 2014-2015 The Regents of the University of California.
+// All rights reserved.
+
+// Permission is hereby granted, without written agreement and without
+// license or royalty fees, to use, copy, modify, and distribute this
+// software and its documentation for any purpose, provided that the above
+// copyright notice and the following two paragraphs appear in all copies
+// of this software.
+
+// IN NO EVENT SHALL THE UNIVERSITY OF CALIFORNIA BE LIABLE TO ANY PARTY
+// FOR DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES
+// ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN IF
+// THE UNIVERSITY OF CALIFORNIA HAS BEEN ADVISED OF THE POSSIBILITY OF
+// SUCH DAMAGE.
+
+// THE UNIVERSITY OF CALIFORNIA SPECIFICALLY DISCLAIMS ANY WARRANTIES,
+// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE SOFTWARE
+// PROVIDED HEREUNDER IS ON AN "AS IS" BASIS, AND THE UNIVERSITY OF
+// CALIFORNIA HAS NO OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, UPDATES,
+// ENHANCEMENTS, OR MODIFICATIONS.
+
+/** Return the range to an intruder
+ *
+ * @author: Ilge Akkya, Contributor: Christopher Brooks
+ * @version $$Id: RangeSensor.js 292 2015-09-01 14:16:50Z eal $$
+ *
+ * @accessor robotics/RangeSensor
+ * @input {JSON} currentPosition The current position of the robot
+ * that is searching, typically { "x": 0, "y": 0}.
+ *
+ * @output {number} rangeMeasurement The range to the intruder.
+ * @parameter {number} noiseSigma A measurement of how noisy the signal is (?).  Default is 2.0.
+ * @parameter {string} intruderKey The key of the intruder in the key/value store.
+ *
+ * @parameter storeLocation The URL of the key/value store.  The type
+ * of this parameter is general so that in Ptolemy the value can be a
+ * Ptolemy parameter so that multiple instances of the actor can be
+ * easily configured.
+ */
+exports.setup = function() {
+
+    input('currentPosition', {
+        'type':'JSON',
+	    'value': '{ "x": 0, "y": 0}'
+    });
+    output('rangeMeasurement', {
+        'type':'number'
+    });
+    parameter('noiseSigma', {
+        'type':'number',
+        'value': 2.0
+    });
+    parameter('intruderKey', {
+        'type':'string',
+        'value':'intruder'
+    });
+    parameter('storeLocation', {
+    });
+};
+
+/** Get the range to the intruder
+ *
+ *  The intruder position is obtained by getting the JSON from the URL
+ *  named by storeLocation + "/get?id=" + intruder
+ *  The range is then adjusted by a noise sample.
+ */
+exports.fire = function () {
+    var sigma = get('noiseSigma');
+    var store = get('storeLocation');
+    var intruder = get('intruderKey');
+    var url = store + '/get?id=' + intruder;
+    var intruderPosition = JSON.parse(readURL(url));
+
+    var intruderX = intruderPosition[0];
+    var intruderY = intruderPosition[1];
+    var robotPosition = JSON.parse(get('currentPosition'));
+    var robotX = robotPosition[0];
+    var robotY = robotPosition[1];
+
+    var gaussianEstimate = ((Math.random()-0.5)*2.0)+((Math.random()-0.5)*2.0)+((Math.random()-0.5)*2.0);
+    var noiseSample = gaussianEstimate*Math.sqrt(sigma);
+
+    var result = Math.sqrt((intruderX - robotX)*(intruderX - robotX) + (intruderY - robotY)*(intruderY - robotY)) + noiseSample;
+    send('rangeMeasurement', result);
+
+}
+  
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Accessors</h3><ul><li><a href="accessor-audio_AudioCapture.html">audio/AudioCapture</a></li><li><a href="accessor-audio_AudioPlayer.html">audio/AudioPlayer</a></li><li><a href="accessor-audio_SwarmAcousticServiceGetdat.html">audio/SwarmAcousticServiceGetdat</a></li><li><a href="accessor-audio_SwarmAcousticServiceInfer.html">audio/SwarmAcousticServiceInfer</a></li><li><a href="accessor-audio_SwarmAcousticServiceQuery.html">audio/SwarmAcousticServiceQuery</a></li><li><a href="accessor-cameras_Camera.html">cameras/Camera</a></li><li><a href="accessor-cameras_Foscam.html">cameras/Foscam</a></li><li><a href="accessor-contextAware.html">contextAware</a></li><li><a href="accessor-contextAwareTest.html">contextAwareTest</a></li><li><a href="accessor-devices_Hue.html">devices/Hue</a></li><li><a href="accessor-GSNInterfaceTest.html">GSNInterfaceTest</a></li><li><a href="accessor-image_AprilTags.html">image/AprilTags</a></li><li><a href="accessor-image_ImageAnnotate.html">image/ImageAnnotate</a></li><li><a href="accessor-image_ImageFilter.html">image/ImageFilter</a></li><li><a href="accessor-image_MotionDetector.html">image/MotionDetector</a></li><li><a href="accessor-localization_Location.html">localization/Location</a></li><li><a href="accessor-net_Discovery.html">net/Discovery</a></li><li><a href="accessor-net_IPAddress.html">net/IPAddress</a></li><li><a href="accessor-net_REST.html">net/REST</a></li><li><a href="accessor-net_UDPSocket.html">net/UDPSocket</a></li><li><a href="accessor-net_VertxPublish.html">net/VertxPublish</a></li><li><a href="accessor-net_VertxSubscribe.html">net/VertxSubscribe</a></li><li><a href="accessor-net_WebSocketClient.html">net/WebSocketClient</a></li><li><a href="accessor-net_WebSocketServer.html">net/WebSocketServer</a></li><li><a href="accessor-robotics_LocationRosPublisher.html">robotics/LocationRosPublisher</a></li><li><a href="accessor-robotics_RangeSensor.html">robotics/RangeSensor</a></li><li><a href="accessor-robotics_RosPublisher.html">robotics/RosPublisher</a></li><li><a href="accessor-robotics_RosSubscriber.html">robotics/RosSubscriber</a></li><li><a href="accessor-services_FFT.html">services/FFT</a></li><li><a href="accessor-services_GeoCoder.html">services/GeoCoder</a></li><li><a href="accessor-services_StockTick.html">services/StockTick</a></li><li><a href="accessor-services_Weather.html">services/Weather</a></li><li><a href="accessor-util_Exec.html">util/Exec</a></li></ul><h3>Global</h3><ul><li><a href="global.html#error">error</a></li><li><a href="global.html#fire">fire</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#httpRequest">httpRequest</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#print">print</a></li><li><a href="global.html#readURL">readURL</a></li><li><a href="global.html#send">send</a></li><li><a href="global.html#setup">setup</a></li><li><a href="global.html#wrapup">wrapup</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a> on Wed Oct 21 2015 00:46:29 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

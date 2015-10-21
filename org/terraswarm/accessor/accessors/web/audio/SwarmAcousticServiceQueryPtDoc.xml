@@ -1,0 +1,12 @@
+<property name="documentation" class="ptolemy.vergil.basic.DocAttribute">
+    <property name="author" class="ptolemy.kernel.util.StringAttribute" value="Long N.T. Le (longle1@illinois.edu)">
+    </property>
+    <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&lt;p&gt;Search an online acoustic database, which is continuously&#10; populated by our Android sensor app, downloadable from&#10; https://play.google.com/store/apps/details?id=com.longle1.spectrogram,&#10; for acoustic events that satisfy given criteria and rank them.&lt;/p&gt;">
+    </property>
+    <property name="search (port)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;record&quot;]}) criteria (see the accompanied demo for details).">
+    </property>
+    <property name="an (port)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;array&quot;]}) array of ranked acoustic events.">
+    </property>
+    <property name="version" class="ptolemy.kernel.util.StringAttribute" value="$$Id: SwarmAcousticServiceQuery.js 292 2015-09-01 14:16:50Z eal $$">
+    </property>
+</property>

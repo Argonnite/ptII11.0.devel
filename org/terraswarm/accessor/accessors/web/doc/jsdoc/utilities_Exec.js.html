@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: utilities/Exec.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: utilities/Exec.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+/** Exec starts a shell command and connects to the process' stdin and stdout.
+ * This accessor implements an interface to the shell of the host. It takes a
+ * command and starts it as a process. It connects the process' stdin and 
+ * stdout to the accessor ports with the same name.
+ * FIXME: Provide a selection of shells (e.g., bash, awk, etc)
+ *
+ *  @accessor util/Exec
+ *  @author Armin Wasicek (arminw@berkeley.edu)
+ *  @input {string} stdin The stdin of the executing process. A token received on this
+ *        port is interpreted as a line entered in stdin of the process.
+ *  @output {string} stdout The stdout of the executing process. Each line read from the 
+ *        executing process is sent out as a token from this port.
+ *  @parameter {string} command The command to be executed.
+ *  @version $$Id: Exec.js 292 2015-09-01 14:16:50Z eal $$
+ */
+
+// This accessor requires the 'shell' module, which may or may
+// not be provided by an accessor host. As this is a very powerful 
+// module, not all host may provide this module for security reasons.
+var shell = require('shell/shell');
+
+/** Global object to the shell module provided by the host. */
+var sh = null;
+
+/** Set up the accessor by defining the inputs and outputs.
+ */
+exports.setup = function() {
+	input('stdin', {
+		'type': 'string'
+	});
+	output('stdout', {
+		'type': 'string'
+	});
+    input('command', {
+        'value': 'ls',
+        'type':'string'
+    });
+}
+
+/** Initialize the accessor and start the process subsequently.
+ */
+exports.initialize = function() {	
+	sh = new shell.Shell({'cmd' : get('command')});
+	
+	addInputHandler('stdin', function() {
+	    var data = get('stdin');
+	    if (data) {
+		  sh.write(data);
+	    }
+	});
+
+	sh.on('message', function(data) {
+		if(data)  {
+			send('stdout', data.toString());
+		}		
+	});
+
+	sh.start();
+}
+	
+/** Wrap up the execution of the accessor by stopping the process.
+ */
+exports.wrapup = function() {
+	if(sh)  {
+		sh.wrapup();
+	}
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Accessors</h3><ul><li><a href="accessor-audio_AudioCapture.html">audio/AudioCapture</a></li><li><a href="accessor-audio_AudioPlayer.html">audio/AudioPlayer</a></li><li><a href="accessor-audio_SwarmAcousticServiceGetdat.html">audio/SwarmAcousticServiceGetdat</a></li><li><a href="accessor-audio_SwarmAcousticServiceInfer.html">audio/SwarmAcousticServiceInfer</a></li><li><a href="accessor-audio_SwarmAcousticServiceQuery.html">audio/SwarmAcousticServiceQuery</a></li><li><a href="accessor-cameras_Camera.html">cameras/Camera</a></li><li><a href="accessor-cameras_Foscam.html">cameras/Foscam</a></li><li><a href="accessor-contextAware.html">contextAware</a></li><li><a href="accessor-contextAwareTest.html">contextAwareTest</a></li><li><a href="accessor-devices_Hue.html">devices/Hue</a></li><li><a href="accessor-GSNInterfaceTest.html">GSNInterfaceTest</a></li><li><a href="accessor-image_AprilTags.html">image/AprilTags</a></li><li><a href="accessor-image_ImageAnnotate.html">image/ImageAnnotate</a></li><li><a href="accessor-image_ImageFilter.html">image/ImageFilter</a></li><li><a href="accessor-image_MotionDetector.html">image/MotionDetector</a></li><li><a href="accessor-localization_Location.html">localization/Location</a></li><li><a href="accessor-net_Discovery.html">net/Discovery</a></li><li><a href="accessor-net_IPAddress.html">net/IPAddress</a></li><li><a href="accessor-net_REST.html">net/REST</a></li><li><a href="accessor-net_UDPSocket.html">net/UDPSocket</a></li><li><a href="accessor-net_VertxPublish.html">net/VertxPublish</a></li><li><a href="accessor-net_VertxSubscribe.html">net/VertxSubscribe</a></li><li><a href="accessor-net_WebSocketClient.html">net/WebSocketClient</a></li><li><a href="accessor-net_WebSocketServer.html">net/WebSocketServer</a></li><li><a href="accessor-robotics_LocationRosPublisher.html">robotics/LocationRosPublisher</a></li><li><a href="accessor-robotics_RangeSensor.html">robotics/RangeSensor</a></li><li><a href="accessor-robotics_RosPublisher.html">robotics/RosPublisher</a></li><li><a href="accessor-robotics_RosSubscriber.html">robotics/RosSubscriber</a></li><li><a href="accessor-services_FFT.html">services/FFT</a></li><li><a href="accessor-services_GeoCoder.html">services/GeoCoder</a></li><li><a href="accessor-services_StockTick.html">services/StockTick</a></li><li><a href="accessor-services_Weather.html">services/Weather</a></li><li><a href="accessor-util_Exec.html">util/Exec</a></li></ul><h3>Global</h3><ul><li><a href="global.html#error">error</a></li><li><a href="global.html#fire">fire</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#httpRequest">httpRequest</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#print">print</a></li><li><a href="global.html#readURL">readURL</a></li><li><a href="global.html#send">send</a></li><li><a href="global.html#setup">setup</a></li><li><a href="global.html#wrapup">wrapup</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a> on Wed Oct 21 2015 00:46:29 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

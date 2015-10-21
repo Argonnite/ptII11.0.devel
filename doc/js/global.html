@@ -1,0 +1,3706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Global</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Global</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+        
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="_debug"><span class="type-signature"></span>_debug<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    JavaScript functions for a Ptolemy II (Nashorn) accessor host.
+
+ <p>This file includes basic utility functions assumed by version 0
+ accessors.</p>
+
+<h2>References</h2>
+
+<p><name="VisionOfSwarmLets">Elizabeth Latronico, Edward A. Lee,
+Marten Lohstroh, Chris Shaver, Armin Wasicek, Matt Weber.</a>
+<a href="http://www.terraswarm.org/pubs/332.html">A Vision of Swarmlets</a>,
+<i>IEEE Internet Computing, Special Issue on Building Internet
+of Things Software</i>, 19(2):20-29, March 2015.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-version">Version:</dt>
+    <dd class="tag-version"><ul class="dummy"><li>$Id: basicFunctions.js 72261 2015-05-08 08:45:30Z marten $</li></ul></dd>
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>Ptolemy II 11.0</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Edward A. Lee, Contributor: Christopher Brooks</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="basicFunctions.js.html">basicFunctions.js</a>, <a href="basicFunctions.js.html#line47">line 47</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="EventBusHelper"><span class="type-signature"></span>EventBusHelper<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    This module provides an interface to the Vert.x event bus, which supports a peer-to-peer publish-and-subscribe network on a local area network. Upon in invoking the VertxBus constructor in this module, the host running this module participates in the pub-sub network. The pub-sub network extends as far as multicast packets extend in the local-area network, and other participants will be automatically discovered. Hence, you can publish events on the local network or subscribe to events on the local network using this module.
+
+Events are published with an address, which is an arbitrary string that identifies the event or stream of events. This address could indicate the topic of message. A network or service using this pub-sub mechanism should develop a convention for these addresses to minimize accidental name collisions. For example, a sensor might publish sensor data using an address like 'org.terraswarm.sensor.accelerometer.onShoe'.
+
+The published data can be any JavaScript object that has a string JSON representation (using JSON.stringify()). 
+
+If the host has more than one network interface (e.g. WiFi and wired), then the one to use can be specified by name as an optional argument to the constructor. You can also specify the port to use, though if you do, then you are responsible for avoiding port collisions. The default network interface used is whichever one is represented by 'localhost'. The default port is an arbitrary unused port.
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_eventbus_eventbus.js.html">modules/eventbus/eventbus.js</a>, <a href="modules_eventbus_eventbus.js.html#line19">line 19</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="EventEmitter"><span class="type-signature"></span>EventEmitter<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    A device discovery library for the Javascript Nashorn engine.
+ 
+ This library uses the "ping" and "arp" commands to discover devices 
+ connected to the local network.  Command syntax is adjusted for OS 
+ differences.
+ 
+ It implements the discover(IPaddress) method required by the device 
+ discovery accessor, and returns a JSON object containing a list of device
+ IP addresses, and names and MAC addresses when available.
+ 
+ Accessors overview: https://www.terraswarm.org/accessors/
+ Device discovery overview:  http://www.terraswarm.org/testbeds/wiki/Main/DiscoverEthernetMACs
+
+ Author: Elizabeth Latronico
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_discovery_discovery.js.html">modules/discovery/discovery.js</a>, <a href="modules_discovery_discovery.js.html#line17">line 17</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="moduleRoot"><span class="type-signature"></span>moduleRoot<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    A string giving the full path to the root directory for installed modules.
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="basicFunctions.js.html">basicFunctions.js</a>, <a href="basicFunctions.js.html#line171">line 171</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="require"><span class="type-signature"></span>require<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    Require the named module. This function imports modules formatted
+according to the CommonJS standard.
+
+<p>If the name begins with './' or '/', then it is assumed to
+specify a file or directory on the local disk. If it is a file, the
+'.js' suffix may be optionally omitted. If it is a directory, then
+this function will look for a package.json file in that directory
+and load the file specified by the 'main' property the JSON object
+defined in that file. If there is no package.json file, then it
+will load an 'index.js' file, if there is one.</p>
+
+<p>If the name does not begin with './' or '/', then it is assumed
+to specify a module installed in this accessor host.</p>
+
+<p>In both cases, this function returns an object that includes as
+properties any properties that have been added to the 'exports'
+property. For example, to export a function, the module JavaScript
+file could define the function as follows:</p>
+
+<pre>
+  exports.myFunction = function() {...};
+</pre>
+
+<p>Alternatively, the module JavaScript file can explicitly define
+the exports object as follows:<p>
+
+<pre>
+  var myFunction = function() {...};
+  module.exports = {
+      myFunction : myFunction
+  };
+</pre>
+
+<p>This implementation uses the requires() function implemented by Walter Higgins,
+found here: <a href="https://github.com/walterhiggins/commonjs-modules-javax-script.">https://github.com/walterhiggins/commonjs-modules-javax-script</a>.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="basicFunctions.js.html">basicFunctions.js</a>, <a href="basicFunctions.js.html#line214">line 214</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://nodejs.org/api/modules.html#modules_the_module_object">http://nodejs.org/api/modules.html#modules_the_module_object</a></li>
+        
+            <li>also: http://wiki.commonjs.org/wiki/Modules</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="addInputHandler"><span class="type-signature"></span>addInputHandler<span class="signature">(func, port)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Add a handler function to call when the specified port receives a new input.
+ Return a handle to use in removeInputHandler(). If there are additional arguments
+ beyond the first two, then those arguments will be passed to the function
+ when it is invoked. The handler can retrieve the input input value by invoking get().
+ Note with this implementation, it is not necessary to
+ call removeInputHandler() in the actor's wrapup() function.
+ Nevertheless, it is a good idea to do that in an accessor
+ since other accessor hosts may not work the same way.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>func</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The function to invoke when the port receives an input.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>port</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The port name (a string).</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="localFunctions.js.html">localFunctions.js</a>, <a href="localFunctions.js.html#line34">line 34</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="alert"><span class="type-signature"></span>alert<span class="signature">(message)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Pop up a dialog with the specified message.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The message</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="basicFunctions.js.html">basicFunctions.js</a>, <a href="basicFunctions.js.html#line52">line 52</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="clearInterval"><span class="type-signature"></span>clearInterval<span class="signature">(handle)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Clear an interval timer with the specified handle.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>handle</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The handle</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="basicFunctions.js.html">basicFunctions.js</a>, <a href="basicFunctions.js.html#line61">line 61</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>setInterval().</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="clearTimeout"><span class="type-signature"></span>clearTimeout<span class="signature">(handle)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Clear a timeout with the specified handle.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>handle</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The handle</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="basicFunctions.js.html">basicFunctions.js</a>, <a href="basicFunctions.js.html#line69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>setTimeout().</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="Client"><span class="type-signature"></span>Client<span class="signature">(options)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Construct an instance of a socket client that can send or receive messages
+ to a server at the specified host and port.
+ The returned object subclasses EventEmitter.
+ You can register handlers for events 'open', 'message', 'close', or 'error'.
+ For example,
+ <pre>
+   var WebSocket = require('webSocket');
+   var client = new WebSocket.Client('localhost', 8080);
+   client.on('message', onMessage);
+   function onMessage(message) {
+     print('Received from web socket: ' + message);
+   }
+ </pre>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A JSON object with fields 'host' and 'port' that give the
+  IP address or host name for the host and the port on which the host is listening.
+  If the host is omitted, 'localhost' is used. If the port is omitted, 80 is used.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_webSocket_webSocket.js.html">modules/webSocket/webSocket.js</a>, <a href="modules_webSocket_webSocket.js.html#line32">line 32</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="convertFromToken"><span class="type-signature"></span>convertFromToken<span class="signature">(value)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Convert the specified argument from a Ptolemy II Token
+ to a JavaScript type if there is a lossless conversion.
+ This is a utility function, not intended for script writers to use.
+ Otherwise, just return the value.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The token to convert.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="localFunctions.js.html">localFunctions.js</a>, <a href="localFunctions.js.html#line196">line 196</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="convertToToken"><span class="type-signature"></span>convertToToken<span class="signature">(value)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Convert the specified argument to a Ptolemy II Token.
+ This is a utility function, not intended for script writers to use.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The JavaScript value to convert.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="localFunctions.js.html">localFunctions.js</a>, <a href="localFunctions.js.html#line235">line 235</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="discoverDevices"><span class="type-signature"></span>discoverDevices<span class="signature">(IPaddress, discoveryMethod)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Discover devices on the local area network.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>IPaddress</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The IP address of the host machine.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>discoveryMethod</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Optional. The discovery method to use, e.g. nmap.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_discovery_discovery.js.html">modules/discovery/discovery.js</a>, <a href="modules_discovery_discovery.js.html#line38">line 38</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="DiscoveryService"><span class="type-signature"></span>DiscoveryService<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    A DiscoveryService "class" that polls the local network for available 
+ devices.  A device is considered available if it responds to a ping 
+ request.  Emits an event once device polling is complete.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_discovery_discovery.js.html">modules/discovery/discovery.js</a>, <a href="modules_discovery_discovery.js.html#line29">line 29</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="error"><span class="type-signature"></span>error<span class="signature">(message)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Handle an error. This just throws an exception.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The message for the exception.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>Just use throw(message).</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="basicFunctions.js.html">basicFunctions.js</a>, <a href="basicFunctions.js.html#line77">line 77</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(port, channel)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Get data from an input port.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>port</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The port name (a string).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>channel</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The channel number, where null is equivalent to 0.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="localFunctions.js.html">localFunctions.js</a>, <a href="localFunctions.js.html#line78">line 78</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="httpRequest"><span class="type-signature"></span>httpRequest<span class="signature">(url, method, properties, body, timeout)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Perform a blocking HTTP request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The url for the request, method, properties, body, timeout) {</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>method</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the request method for the url connection.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>properties</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An array of properties for the connection.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>body</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">If non-empty, the body to be written to the output
+ stream of the connection.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timeout</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">If specified, the connect and read timeout in milliseconds.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="basicFunctions.js.html">basicFunctions.js</a>, <a href="basicFunctions.js.html#line91">line 91</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="inherits"><span class="type-signature"></span>inherits<span class="signature">(ctor, superCtor)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Inherit the prototype methods from one constructor into another.
+
+The Function.prototype.inherits from lang.js rewritten as a standalone
+function (not on Function.prototype). NOTE: If this file is to be loaded
+during bootstrapping this function needs to be rewritten using some native
+functions as prototype setup using normal JavaScript does not work as
+expected during bootstrapping (see mirror.js in r114903).
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ctor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Constructor function which needs to inherit the
+    prototype.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>superCtor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Constructor function to inherit prototype from.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="node_util.js.html">node/util.js</a>, <a href="node_util.js.html#line600">line 600</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="inspect"><span class="type-signature"></span>inspect<span class="signature">(obj, opts)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Echos the value of a value. Trys to print the value out
+in the best way possible given the different types.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The object to print out.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Optional options object that alters the output.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="node_util.js.html">node/util.js</a>, <a href="node_util.js.html#line97">line 97</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="nullHandlerFunction"><span class="type-signature"></span>nullHandlerFunction<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Default empty function to use if the function argument to
+ addInputHandler is null.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="localFunctions.js.html">localFunctions.js</a>, <a href="localFunctions.js.html#line65">line 65</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="readURL"><span class="type-signature"></span>readURL<span class="signature">(url, timeout)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Synchronously read a URL.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The url.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timeout</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The timeout in milliseconds</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="basicFunctions.js.html">basicFunctions.js</a>, <a href="basicFunctions.js.html#line146">line 146</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="removeInputHandler"><span class="type-signature"></span>removeInputHandler<span class="signature">(handle, port)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Remove the input handler for the specified port
+ with the specified handle.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>handle</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The handle.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>port</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The port name (a string).</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="localFunctions.js.html">localFunctions.js</a>, <a href="localFunctions.js.html#line107">line 107</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="global.html#addInputHandler()">#addInputHandler()</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="send"><span class="type-signature"></span>send<span class="signature">(value, port, channel)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Send data to an output port.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The value to send.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>port</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The port name (a string).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>channel</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The channel number, where null is equivalent to 0.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="localFunctions.js.html">localFunctions.js</a>, <a href="localFunctions.js.html#line125">line 125</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="Server"><span class="type-signature"></span>Server<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Construct an instance of WebSocket Server.
+ After invoking this constructor (using new), the user script should set up listeners
+ and then invoke the startServer() function on this Server.
+ This will create an HTTP server on the local host.
+ The options argument is a JSON object containing the following optional fields:
+ <ul>
+ <li> hostInterface: The IP address or name of the local interface for the server
+      to listen on.  This defaults to "localhost", but if the host machine has more
+      than one network interface, e.g. an Ethernet and WiFi interface, then you may
+      need to specifically specify the IP address of that interface here.
+ <li> port: The port on which to listen for connections (the default is 80,
+      which is the default HTTP port).
+ </ul>
+ This subclasses EventEmitter, emitting events 'listening' and 'connection'.
+ A typical usage pattern looks like this:
+ <pre>
+    var server = new WebSocket.Server({port:8082});
+    server.on('listening', onListening);
+    server.on('connection', onConnection);
+    server.startServer();
+ </pre>
+ where onListening is a handler for an event that this Server emits
+ when it is listening for connections, and onConnection is a handler
+ for an event that this Server emits when a client requests a websocket
+ connection and the socket has been successfully established.
+ When the 'connection' event is emitted, it will be passed a Socket object,
+ and the onConnection handler can register a listener for 'message' events
+ on that Socket object, as follows:
+ <pre>
+    server.on('connection', function(socket) {
+       socket.on('message', function(message) {
+           console.log(message);
+           socket.send('Reply message');
+       });
+    });
+ </pre>
+ The Socket object also has a close() function that allows the server to close
+ the connection.
+ <p>
+ FIXME: Should provide a mechanism to validate the "Origin" header during the
+   connection establishment process on the serverside (against the expected origins)
+   to avoid Cross-Site WebSocket Hijacking attacks.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_webSocket_webSocket.js.html">modules/webSocket/webSocket.js</a>, <a href="modules_webSocket_webSocket.js.html#line126">line 126</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="set"><span class="type-signature"></span>set<span class="signature">(value, parameter)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Set the value of a parameter.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The value to set.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>parameter</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The parameter name (a string).</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="localFunctions.js.html">localFunctions.js</a>, <a href="localFunctions.js.html#line145">line 145</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="setInterval"><span class="type-signature"></span>setInterval<span class="signature">(func, milliseconds)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Set a timeout to call the specified function after the specified
+time and repeatedly at multiples of that time.
+
+<p> Return a handle to use in clearInterval(). If there are
+additional arguments beyond the first two, then those arguments
+will be passed to the function when it is invoked. This
+implementation uses fireAt() of the director in charge of the host
+JavaScript actor in Ptolemy II. Hence, actors that use this should
+be used with a director that respects fireAt(), such as DE.  If the
+director has synchronizeToRealTime set to true, then it will
+approximate real-time behavior reasonably closely. Otherwise, the
+timeout will only be simulated. Either way, the timing is much more
+precise and well-defined than usual for JavaScript environments. If
+two actors specify the same timeout time in, say, their
+initialize() function, then they will be invoked at the same model
+time, and their outputs will be simultaneous. Any downstream actor
+will see them simultaneously.</p>
+
+<p>Note with this implementation, it is not necessary to
+call clearInterval() in the actor's wrapup() function.
+Nevertheless, it is a good idea to do that in an accessor
+since other accessor hosts may not work the same way.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>func</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The callback function.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>milliseconds</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The interval in milliseconds.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="basicFunctions.js.html">basicFunctions.js</a>, <a href="basicFunctions.js.html#line259">line 259</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="setTimeout"><span class="type-signature"></span>setTimeout<span class="signature">(func, milliseconds)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Set a timeout to call the specified function after the specified time.
+
+<p>Return a handle to use in clearTimeout(). If there are
+additional arguments beyond the first two, then those arguments
+will be passed to the function when it is invoked. This
+implementation uses fireAt() of the director in charge of the host
+JavaScript actor in Ptolemy II. Hence, actors that use this should
+be used with a director that respects fireAt(), such as DE.  If the
+director has synchronizeToRealTime set to true, then it will
+approximate real-time behavior reasonably closely. Otherwise, the
+timeout will only be simulated. Either way, the timing is much more
+precise and well-defined than usual for JavaScript environments. If
+two actors specify the same timeout time in, say, their
+initialize() function, then they will be invoked at the same model
+time, and their outputs will be simultaneous. Any downstream actor
+will see them simultaneously.</p>
+
+<p>Note with this implementation, it is not necessary to
+call clearTimeout() in the actor's wrapup() function.
+Nevertheless, it is a good idea to do that in an accessor
+since other accessor hosts may not work the same way.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>func</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The callback function.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>milliseconds</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The interval in milliseconds.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="basicFunctions.js.html">basicFunctions.js</a>, <a href="basicFunctions.js.html#line298">line 298</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="Socket"><span class="type-signature"></span>Socket<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Construct (using new) a Socket object for the server side of a new connection.
+ This is called by the socketCreated function above whenever a new connection is
+ established at the request of a client. It should not normally be called by
+ the JavaScript programmer. The returned Socket is an event emitter that emits
+ 'message' events.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_webSocket_webSocket.js.html">modules/webSocket/webSocket.js</a>, <a href="modules_webSocket_webSocket.js.html#line163">line 163</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="VertxBus.html">VertxBus</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_debug">_debug</a></li><li><a href="global.html#addInputHandler">addInputHandler</a></li><li><a href="global.html#alert">alert</a></li><li><a href="global.html#clearInterval">clearInterval</a></li><li><a href="global.html#clearTimeout">clearTimeout</a></li><li><a href="global.html#Client">Client</a></li><li><a href="global.html#convertFromToken">convertFromToken</a></li><li><a href="global.html#convertToToken">convertToToken</a></li><li><a href="global.html#discoverDevices">discoverDevices</a></li><li><a href="global.html#DiscoveryService">DiscoveryService</a></li><li><a href="global.html#error">error</a></li><li><a href="global.html#EventBusHelper">EventBusHelper</a></li><li><a href="global.html#EventEmitter">EventEmitter</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#httpRequest">httpRequest</a></li><li><a href="global.html#inherits">inherits</a></li><li><a href="global.html#inspect">inspect</a></li><li><a href="global.html#moduleRoot">moduleRoot</a></li><li><a href="global.html#nullHandlerFunction">nullHandlerFunction</a></li><li><a href="global.html#readURL">readURL</a></li><li><a href="global.html#removeInputHandler">removeInputHandler</a></li><li><a href="global.html#require">require</a></li><li><a href="global.html#send">send</a></li><li><a href="global.html#Server">Server</a></li><li><a href="global.html#set">set</a></li><li><a href="global.html#setInterval">setInterval</a></li><li><a href="global.html#setTimeout">setTimeout</a></li><li><a href="global.html#Socket">Socket</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a> on Tue May 19 2015 16:17:14 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

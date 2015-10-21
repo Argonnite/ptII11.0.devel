@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: image/MotionDetector.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: image/MotionDetector.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// Copyright (c) 2015 The Regents of the University of California.
+// All rights reserved.
+
+// Permission is hereby granted, without written agreement and without
+// license or royalty fees, to use, copy, modify, and distribute this
+// software and its documentation for any purpose, provided that the above
+// copyright notice and the following two paragraphs appear in all copies
+// of this software.
+
+// IN NO EVENT SHALL THE UNIVERSITY OF CALIFORNIA BE LIABLE TO ANY PARTY
+// FOR DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES
+// ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN IF
+// THE UNIVERSITY OF CALIFORNIA HAS BEEN ADVISED OF THE POSSIBILITY OF
+// SUCH DAMAGE.
+
+// THE UNIVERSITY OF CALIFORNIA SPECIFICALLY DISCLAIMS ANY WARRANTIES,
+// INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE SOFTWARE
+// PROVIDED HEREUNDER IS ON AN "AS IS" BASIS, AND THE UNIVERSITY OF
+// CALIFORNIA HAS NO OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, UPDATES,
+// ENHANCEMENTS, OR MODIFICATIONS.
+
+/** A motion detector accessor.
+ *  This accessor compares each input image against the previous
+ *  input image. There are three outputs.
+ *  The one named 'output' is a modified image that graphically illustrates
+ *  the center of gravity of motion, if motion is detected.
+ *  If enough of the pixels differ by enough, then the 'cog'
+ *  output will produce the center of gravity of the pixels that
+ *  differ by enough.
+ *  Finally, the 'area' output produces the percentage of area
+ *  covered by motion in the input image, where 0 means no motion
+ *  and 100 means full image motion.
+ *  
+ *  The options parameter can include the following fields:
+ *  * _PixelThreshold_: Intensity threshold whereby a pixel is
+ *    deemed to different (an int in the range of 0 to 255, with default 25).
+ *  * _AreaThreshold_: The percentage threshold of image
+ *    that has different pixels for motion to be detected
+ *    (a double 0-100, with default 0.2).
+ *  * _ModifyImage_: If true (the default), the modify the
+ *    provided image with a visual indication of the location
+ *    and amount of motion.
+ *
+ *  The implementation for the Ptolemy II host is taken from
+ *  the webcam-capture package by Bartosz Firyn (SarXos), available from
+ *  [https://github.com/sarxos/webcam-capture](https://github.com/sarxos/webcam-capture).
+ *  The webcam-capture package is licensed under the MIT License.
+ * 
+ *  @accessor image/MotionDetector
+ *  @input input A stream of images.
+ *  @input {{"PixelThreshold": number, "AreaThreshold": number}} options The options controlling the filter.
+ *  @output {array&lt;{'horizontal': 'number', 'vertical': 'number'}>} cog The horizontal and vertical position of the center of gravity of motion, in pixels.
+ *  @output {Object} output The filtered image.
+ *  @author Edward A. Lee
+ *  @version $$Id: MotionDetector.js 297 2015-09-11 18:01:13Z eal $$
+ */
+
+var motionDetector = require('motionDetector');
+
+exports.setup = function() {
+    input('input');
+    output('output');
+    output('cog');
+    output('area', {'type':'number'});
+    input('options', {'value':'{"PixelThreshold": 25, "AreaThreshold": 0.2}', 'type':'JSON'});
+}
+
+exports.initialize = function() {
+    addInputHandler('input', function() {
+        var options = get('options');
+        var image = get('input');
+        var result = motionDetector.filter(image, options);
+        send('output', result);
+        var cog = motionDetector.cog();
+        if (cog) {
+            send('cog', cog);
+        }
+        send('area', motionDetector.area());
+    });
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Accessors</h3><ul><li><a href="accessor-audio_AudioCapture.html">audio/AudioCapture</a></li><li><a href="accessor-audio_AudioPlayer.html">audio/AudioPlayer</a></li><li><a href="accessor-audio_SwarmAcousticServiceGetdat.html">audio/SwarmAcousticServiceGetdat</a></li><li><a href="accessor-audio_SwarmAcousticServiceInfer.html">audio/SwarmAcousticServiceInfer</a></li><li><a href="accessor-audio_SwarmAcousticServiceQuery.html">audio/SwarmAcousticServiceQuery</a></li><li><a href="accessor-cameras_Camera.html">cameras/Camera</a></li><li><a href="accessor-cameras_Foscam.html">cameras/Foscam</a></li><li><a href="accessor-contextAware.html">contextAware</a></li><li><a href="accessor-contextAwareTest.html">contextAwareTest</a></li><li><a href="accessor-devices_Hue.html">devices/Hue</a></li><li><a href="accessor-GSNInterfaceTest.html">GSNInterfaceTest</a></li><li><a href="accessor-image_AprilTags.html">image/AprilTags</a></li><li><a href="accessor-image_ImageAnnotate.html">image/ImageAnnotate</a></li><li><a href="accessor-image_ImageFilter.html">image/ImageFilter</a></li><li><a href="accessor-image_MotionDetector.html">image/MotionDetector</a></li><li><a href="accessor-localization_Location.html">localization/Location</a></li><li><a href="accessor-net_Discovery.html">net/Discovery</a></li><li><a href="accessor-net_IPAddress.html">net/IPAddress</a></li><li><a href="accessor-net_REST.html">net/REST</a></li><li><a href="accessor-net_UDPSocket.html">net/UDPSocket</a></li><li><a href="accessor-net_VertxPublish.html">net/VertxPublish</a></li><li><a href="accessor-net_VertxSubscribe.html">net/VertxSubscribe</a></li><li><a href="accessor-net_WebSocketClient.html">net/WebSocketClient</a></li><li><a href="accessor-net_WebSocketServer.html">net/WebSocketServer</a></li><li><a href="accessor-robotics_LocationRosPublisher.html">robotics/LocationRosPublisher</a></li><li><a href="accessor-robotics_RangeSensor.html">robotics/RangeSensor</a></li><li><a href="accessor-robotics_RosPublisher.html">robotics/RosPublisher</a></li><li><a href="accessor-robotics_RosSubscriber.html">robotics/RosSubscriber</a></li><li><a href="accessor-services_FFT.html">services/FFT</a></li><li><a href="accessor-services_GeoCoder.html">services/GeoCoder</a></li><li><a href="accessor-services_StockTick.html">services/StockTick</a></li><li><a href="accessor-services_Weather.html">services/Weather</a></li><li><a href="accessor-util_Exec.html">util/Exec</a></li></ul><h3>Global</h3><ul><li><a href="global.html#error">error</a></li><li><a href="global.html#fire">fire</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#httpRequest">httpRequest</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#print">print</a></li><li><a href="global.html#readURL">readURL</a></li><li><a href="global.html#send">send</a></li><li><a href="global.html#setup">setup</a></li><li><a href="global.html#wrapup">wrapup</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a> on Wed Oct 21 2015 00:46:29 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

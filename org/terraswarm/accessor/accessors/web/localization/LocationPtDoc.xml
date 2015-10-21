@@ -1,0 +1,6 @@
+<property name="documentation" class="ptolemy.vergil.basic.DocAttribute">
+    <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&lt;p&gt;This accessor reads sensor and location data from a location host&#10; &lt;p&gt;&#10;    The accessor makes REST GET requests to a location host to obtain sensor and location&#10;    data. The type of data requested is defined by the dataType parameter. Possible values for&#10; the dataType parameter are:&#10;    &amp;quot;ibeacon&amp;quot;: Fetches region UUID, major, minor, range, proximity and RSSI values of&#10;    nearby iBeacons.&#10;    &amp;quot;alps&amp;quot;: Fetches ALPS region ID, transmitter IDs, TOA and RSSI values of nearby ALPS&#10;    transmitters&#10;    &amp;quot;imu&amp;quot;: Fetches pedometer and heading values&#10;    &amp;quot;wifi&amp;quot;: Fetches SSIDs, BSSIDs and RSSI values from nearby WiFi hotspots&#10;    &amp;quot;all&amp;quot;: Fetches all of the above data at once&#10;    All outputs are JSON formatted and contain UNIX timestamps of when the data was&#10;    acquired by the location host.&lt;/p&gt;">
+    </property>
+    <property name="version" class="ptolemy.kernel.util.StringAttribute" value="$$Id: Hue.js 268 2015-08-21 21:58:32Z eal $$">
+    </property>
+</property>

@@ -1,0 +1,12 @@
+<property name="documentation" class="ptolemy.vergil.basic.DocAttribute">
+    <property name="author" class="ptolemy.kernel.util.StringAttribute" value="Long N.T. Le (longle1@illinois.edu)">
+    </property>
+    <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&lt;p&gt;Return the raw audio data in .wav format for a given input acoustic event.&lt;/p&gt;">
+    </property>
+    <property name="search (port)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;record&quot;]}) criteria including the name of an acoustic event (see the accompanied demo for details).">
+    </property>
+    <property name="the (port)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;general&quot;]}) raw data associated with the input acoustic event, for playback.">
+    </property>
+    <property name="version" class="ptolemy.kernel.util.StringAttribute" value="$$Id: SwarmAcousticServiceGetdat.js 292 2015-09-01 14:16:50Z eal $$">
+    </property>
+</property>

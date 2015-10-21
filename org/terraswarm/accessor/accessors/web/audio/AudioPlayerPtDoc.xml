@@ -1,0 +1,8 @@
+<property name="documentation" class="ptolemy.vergil.basic.DocAttribute">
+    <property name="author" class="ptolemy.kernel.util.StringAttribute" value="Edward A. Lee (eal@eecs.berkeley.edu)">
+    </property>
+    <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&lt;p&gt;Accessor to play an audio signal.&#10; FIXME: This accessor is a placeholder.&#10; It just plays 2 seconds of fixed audio in initialize().&#10; You should update it to accept an input and play that.&lt;/p&gt;">
+    </property>
+    <property name="version" class="ptolemy.kernel.util.StringAttribute" value="$$Id: AudioPlayer.js 292 2015-09-01 14:16:50Z eal $$">
+    </property>
+</property>

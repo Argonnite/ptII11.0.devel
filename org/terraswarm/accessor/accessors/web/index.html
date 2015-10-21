@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <!-- $Id: index.html 270 2015-08-22 08:18:37Z eal $ -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <title>Terraswarm Accessors</title>
+  </head>
+  <body>
+    <h1>Terraswarm Accessors</h1>
+    <p>Accessors, described in the paper, <a href="http://www.terraswarm.org/pubs/332.html">A Vision of Swarmlets</a>, 
+      are actors that provide access to a (typically remote) service, sensor, or actuator. An accessor is instantiated by an
+      <b>accessor host</b> or <b>swarmlet host</b>, which is a program or browser script. The host uses the accessor as if it were a local
+      source and/or sink for data and/or commands.
+      An accessor host is to the Internet of Things what a browser is to the Internet.
+      It renders a remote service by locally executing a proxy for that service.
+    </p>
+<p><font color="red">The <a href="http://www.terraswarm.org/accessors/wiki/">wiki page</a> for this workgroup is the place to go to participate in the design of the accessor mechanism.</font></p>
+    <p>
+      The TerraSwarm project has developed a "version 0.1" accessor design and a suite of accessor hosts that should be viewed as concept demonstrations. We are further developing the design.
+      <a href="http://ptolemy.org/ptolemyII">Ptolemy II</a> (the Development Version in the SVN repository) is currently
+      the most complete prototype of an accessor host. In Ptolemy II, the accessors listed here can be
+      instantiated using the File-Import-Import Accessor menu item, and can then be incorporated into
+      a Ptolemy II model.  For a tutorial on Ptolemy II, see the <a href="http://ptolemy.org/systems">Ptolemy Book</a> (a free download).
+      To view the accessor script from within Ptolemy II, double click on the accessor instance, select Preferences, and enable "expert mode."</p>
+    <p>
+    <h2>Example Accessors</h2>
+    Below is an incomplete list of accessors. See the <a href="https://www.terraswarm.org/accessors/doc/jsdoc/">JSDoc documentation</a> for all TerraSwarm accessors and the <a href="index.json">index.json</a> file and subdirectories for a complete list.
+    <ul>
+      <li><a href="/accessors/audio/AudioCapture.js">AudioCapture</a></li>
+      <li><a href="/accessors/audio/AudioPlayer.js">AudioPlayer</a> (placeholder only)</li>
+      <li><a href="/accessors/cameras/Camera.js">cameras/Camera</a></li>
+      <li><a href="/accessors/cameras/Foscam.js">cameras/Foscam</a></li>
+      <li><a href="/accessors/net/Discovery.js">Discovery</a></li>
+      <li><a href="/accessors/utilities/Exec.js">Exec</a></li>
+      <li><a href="/accessors/signals/FFT.js">FFT</a></li>
+      <li><a href="/accessors/devices/Hue.js">Hue</a></li>
+      <li><a href="/accessors/image/AprilTags.js">image/AprilTags</a></li>
+      <li><a href="/accessors/image/ImageFilter.js">image/ImageFilter</a></li>
+      <li><a href="/accessors/net/REST.js">net/REST</a></li>
+      <li><a href="/accessors/services/StockTick.js">StockTick</a></li>
+      <li><a href="/accessors/net/VertxPublish.js">VertxPublish</a></li>
+      <li><a href="/accessors/net/VertxSubscribe.js">VertxSubscribe</a>s</li>
+    </ul>
+
+<!-- Obsolete
+    <h2>XML Accessors</h2>
+    The following accessors are obsolete, but may be useful to browse. We are no longer developing the XML syntax for accessor specification. <b>Currently, none of these work in the browser host! The browser host has not been updated to support new design features. So you can only browse the source in the browser.</b> All of these work in the Ptolemy II host, and some of them in the Node.js host.
+    <ul>
+      <li><a href="/accessors/Accelerometer.xml">Accelerometer</a> (see <a href="Accelerometer.html">source</a> file)</li>
+      <li><a href="/accessors/GeographicLocationByIP.xml">GeographicLocationByIP</a> (see <a href="GeographicLocationByIP.html">source</a> file)</li>
+      <li><a href="/accessors/KeyValueStore.xml">KeyValueStore</a> (see <a href="KeyValueStore.html">source</a> file)</li>
+      <li><a href="/accessors/Hue.xml">Hue</a> (see <a href="Hue.html">source</a> file)</li>
+      <li><a href="/accessors/SensorTag.xml">SensorTag</a> (see <a href="SensorTag.html">source</a> file)</li>
+      <li><a href="/accessors/StockTick.xml">StockTick</a> (see <a href="StockTick.html">source</a> file)</li>
+      <li><a href="/accessors/Weather.xml">Weather</a> (see <a href="Weather.html">source</a> file)</li>
+      <li><a href="/accessors/WebSocketClient.xml">WebSocketClient</a> (see <a href="WebSocketClient.html">source</a> file)</li>
+      <li><a href="/accessors/WebSocketClient.xml">WebSocketServer</a> (see <a href="WebSocketServer.html">source</a> file)</li>
+      <li><a href="/accessors/WiiMote.xml">WiiMote</a> (see <a href="WiiMote.html">source</a> file)</li>
+    </ul>
+-->
+    <h1>Demos</h1>
+
+    <!-- See https://www.terraswarm.org/accessors/wiki/Main/AccessorDemoPolicy -->
+
+    <p>To run the following models, save them to some directory, and open them with a current version of Ptolemy II
+      (<a href="https://chess.eecs.berkeley.edu/ptexternal">SVN Development Version</a>).
+      <i>These models are also available in the ptII svn repo as <code>$PTII/src/ptII/org/terraswarm/accessor/demo</code></i></p>
+    <ul>
+      <li><b>StockTick</b>:
+	The
+	<a href="https://chess.eecs.berkeley.edu/ptexternal/src/ptII/org/terraswarm/accessor/demo/StockTick/StockTick.xml">StockTick.xml</a> Ptolemy II model
+	accesses and displays the stock prices of the publicly-held sponsors of the TerraSwarm project.
+      </li>
+      <li><b>Hue</b>:
+	The
+	<a href="https://chess.eecs.berkeley.edu/ptexternal/src/ptII/org/terraswarm/accessor/demo/HueToggle/HueToggle.xml">HueToggle.xml</a> Ptolemy II model
+	randomly toggles the color of a Philips Hue lightbulb. 
+	The
+	<a href="https://chess.eecs.berkeley.edu/ptexternal/src/ptII/org/terraswarm/accessor/demo/HappySadStock/HappySadStock.xml">HappySadStock.xml</a> model
+	uses the StockTick accessor to control the color of a Hue lightbulb based on stock prices. 
+	You will need to know the IP address of a local Hue Bridge.
+      </li>
+      <li><b>KeyValueStore</b>:
+	Two Ptolemy II models are provided to demonstrate the KeyValueStore accessor.
+	<a href="https://chess.eecs.berkeley.edu/ptexternal/src/ptII/org/terraswarm/accessor/demo/KeyValueStoreClient/KeyValueStoreServer.xml">KeyValueStoreServer.xml</a> provides a server.
+	Run this model to create a key-value storage service on your local host.
+	<a href="https://chess.eecs.berkeley.edu/ptexternal/src/ptII/org/terraswarm/accessor/demo/KeyValueStoreClient/KeyValueStoreClient.xml">KeyValueStoreClient.xml</a> provides a simple
+	client that uses this server. More interesting clients will be distributed across several machines.
+	<br/>
+	You <i>may</i> find our server running and accessible.  See <a href="http://ptango.eecs.berkeley.edu:8077/keyvalue/help">http://ptango.eecs.berkeley.edu:8077/keyvalue/help</a>.
+      </li>
+    </ul>
+
+    <h1>Additional Information</h1>
+    <ul>
+      <li> <a href="/accessors/Accessor_1.dtd">Accessor_1.dtd</a>, the document type definition that gives the interface specification for XML accessors.</li>
+      <li> <a href="/accessors/wiki">The Accessors Wiki</a></li>
+    </ul>
+
+    <p>To edit accessors, add your own accessors or demos, or to edit this page <a href="http://www.terraswarm.org/accessors/svn.html">use Subversion</a>.</p>
+
+  </body>
+</html>

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Accessor: robotics/RosSubscriber</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Accessor: robotics/RosSubscriber</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+        robotics/RosSubscriber
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>This accessor subscribes to a pre-established ROS topic.<br>
+ It communicates to ROS through the rosbridge web socket, and extends the 
+ WebSocketClient accessor to do so. 
+ It has a 'topic' parameter, that must be prefixed with a '/' eg: '/noise'.<br>. 
+ The other parameters configure how the data is to be received according
+ to the rosbridge specification:
+ https://github.com/RobotWebTools/rosbridge_suite/blob/develop/ROSBRIDGE_PROTOCOL.md#344-subscribe</p></div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+    <dt class="tag-version">Version:</dt>
+    <dd class="tag-version"><ul class="dummy"><li>$$Id: RosSubscriber.js 292 2015-09-01 14:16:50Z eal $$</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Marcus Pan, Matt Weber</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="robotics_RosSubscriber.js.html">robotics/RosSubscriber.js</a>, <a href="robotics_RosSubscriber.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+    <h5>Outputs:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>connected</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The status of the web socket connection.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>received</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">JSON</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The data received from the web socket server.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+                                              
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>topic</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The ROS topic to subscribe to.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>throttleRate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The minimum amount of time (in ms)
+  that must elapse between messages sent. Defaults to 0.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>queueLength</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The ROS size of the queue to buffer messages.
+  Messages are buffered as a result of the throttleRate. Defaults to 1.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fragment_size</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The maximum size that a message can take
+  before it is to be fragmented. Defaults to 1000. Ptolemy will close the
+  model if fragment size is too large (not sure what the maximum is).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>compression</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A string to specify the compression
+  scheme to be used on messages. Options are "none" (default) and "png".</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>outputCompleteResponseOnly</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A flag which if set to true
+  will cause the accessor to delay in sending messages on the "received" port
+  until it has concatenated the data fields from message fragments back into
+  the original unfragmented message. Otherwise it will send the message
+  fragments as they come in.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".initialize"><span class="type-signature">(static) </span>initialize<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Inherits initialize from webSocketClient.<br>
+    Sends a message to rosbridge to start subscribing to the topic on input 'topic'.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="robotics_RosSubscriber.js.html">robotics/RosSubscriber.js</a>, <a href="robotics_RosSubscriber.js.html#line97">line 97</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".setup"><span class="type-signature">(static) </span>setup<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Sets up by accessor by inheriting inputs, outputs and parameters from setup() in WebSocketClient.<br>
+ Adds a 'topic' input which is the ROS topic to subscribe to.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="robotics_RosSubscriber.js.html">robotics/RosSubscriber.js</a>, <a href="robotics_RosSubscriber.js.html#line59">line 59</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".toSendInputHandler"><span class="type-signature">(static) </span>toSendInputHandler<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Overrides the toSendInputHandler to throw an error if called. A subscriber should not be publishing inputs.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="robotics_RosSubscriber.js.html">robotics/RosSubscriber.js</a>, <a href="robotics_RosSubscriber.js.html#line91">line 91</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".wrapup"><span class="type-signature">(static) </span>wrapup<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Unsubscribe from the topic. Close websocket connections by calling wrapup of WebSocketClient</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="robotics_RosSubscriber.js.html">robotics/RosSubscriber.js</a>, <a href="robotics_RosSubscriber.js.html#line111">line 111</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Accessors</h3><ul><li><a href="accessor-audio_AudioCapture.html">audio/AudioCapture</a></li><li><a href="accessor-audio_AudioPlayer.html">audio/AudioPlayer</a></li><li><a href="accessor-audio_SwarmAcousticServiceGetdat.html">audio/SwarmAcousticServiceGetdat</a></li><li><a href="accessor-audio_SwarmAcousticServiceInfer.html">audio/SwarmAcousticServiceInfer</a></li><li><a href="accessor-audio_SwarmAcousticServiceQuery.html">audio/SwarmAcousticServiceQuery</a></li><li><a href="accessor-cameras_Camera.html">cameras/Camera</a></li><li><a href="accessor-cameras_Foscam.html">cameras/Foscam</a></li><li><a href="accessor-contextAware.html">contextAware</a></li><li><a href="accessor-contextAwareTest.html">contextAwareTest</a></li><li><a href="accessor-devices_Hue.html">devices/Hue</a></li><li><a href="accessor-GSNInterfaceTest.html">GSNInterfaceTest</a></li><li><a href="accessor-image_AprilTags.html">image/AprilTags</a></li><li><a href="accessor-image_ImageAnnotate.html">image/ImageAnnotate</a></li><li><a href="accessor-image_ImageFilter.html">image/ImageFilter</a></li><li><a href="accessor-image_MotionDetector.html">image/MotionDetector</a></li><li><a href="accessor-localization_Location.html">localization/Location</a></li><li><a href="accessor-net_Discovery.html">net/Discovery</a></li><li><a href="accessor-net_IPAddress.html">net/IPAddress</a></li><li><a href="accessor-net_REST.html">net/REST</a></li><li><a href="accessor-net_UDPSocket.html">net/UDPSocket</a></li><li><a href="accessor-net_VertxPublish.html">net/VertxPublish</a></li><li><a href="accessor-net_VertxSubscribe.html">net/VertxSubscribe</a></li><li><a href="accessor-net_WebSocketClient.html">net/WebSocketClient</a></li><li><a href="accessor-net_WebSocketServer.html">net/WebSocketServer</a></li><li><a href="accessor-robotics_LocationRosPublisher.html">robotics/LocationRosPublisher</a></li><li><a href="accessor-robotics_RangeSensor.html">robotics/RangeSensor</a></li><li><a href="accessor-robotics_RosPublisher.html">robotics/RosPublisher</a></li><li><a href="accessor-robotics_RosSubscriber.html">robotics/RosSubscriber</a></li><li><a href="accessor-services_FFT.html">services/FFT</a></li><li><a href="accessor-services_GeoCoder.html">services/GeoCoder</a></li><li><a href="accessor-services_StockTick.html">services/StockTick</a></li><li><a href="accessor-services_Weather.html">services/Weather</a></li><li><a href="accessor-util_Exec.html">util/Exec</a></li></ul><h3>Global</h3><ul><li><a href="global.html#error">error</a></li><li><a href="global.html#fire">fire</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#httpRequest">httpRequest</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#print">print</a></li><li><a href="global.html#readURL">readURL</a></li><li><a href="global.html#send">send</a></li><li><a href="global.html#setup">setup</a></li><li><a href="global.html#wrapup">wrapup</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a> on Wed Oct 21 2015 00:46:30 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+[
+    "Discovery.js",
+    "IPAddress.js",
+    "KeyValueStore.xml",
+    "REST.js",
+    "UDPSocket.js",
+    "VertxPublish.js",
+    "VertxSubscribe.js",
+    "WebSocketClient.js",
+    "WebSocketServer.js"
+]

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Accessor: image/ImageAnnotate</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Accessor: image/ImageAnnotate</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+        image/ImageAnnotate
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>This accessor annotates an image provided at the <em>image</em> input
+ by rendering an SVG graphic overlaid on the image.</p>
+<p> The <em>graphic</em> input, if provided, gives an SVG specification of the graphic.
+ Alternatively, if a <em>graphic</em> input is not provided, or the <em>graphic</em> input
+ is empty, the <em>graphicURI</em> input can provide a resource identifier for the graphic.
+ This can be a URL or a local resource (a file) available on the host.
+ Note that most hosts will restrict locations from which files can be read.
+ Usually they will allow to read files in the directory where the swarmlet is located
+ on the file system, or in a subdirectory of that directory.
+ To read such a file, give a path relative to the location of the swarmlet.</p>
+<p> The <em>translate</em>
+ input can be used to shift the graphic in the X and Y directions,
+ and the <em>rotate</em> input can used to rotate the graphic.</p>
+<p> The <em>options</em> input can have the following fields:</p>
+<ul>
+<li><strong>XOffset</strong>: The horizontal offset for the graphic. If this is specified
+and a <em>translate</em> input is also provided, the both offsets are applied.</li>
+<li><strong>YOffset</strong>: The vertical offset for the graphic. If this is specified
+and a <em>translate</em> input is also provided, the both offsets are applied.</li>
+</ul></div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+    <dt class="tag-version">Version:</dt>
+    <dd class="tag-version"><ul class="dummy"><li>$$Id: ImageAnnotate.js 298 2015-09-11 18:01:27Z eal $$</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Edward A. Lee</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="image_ImageAnnotate.js.html">image/ImageAnnotate.js</a>, <a href="image_ImageAnnotate.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    <h5>Inputs:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>image</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The image to annotate.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>graphic</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The location of an SVG graphic to overlay on the image.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>translate</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An offset to apply to the graphic, as two element array specifying
+  horizontal and vertical offsets in pixels.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A JSON object specifying options.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+                                              
+
+
+    <h5>Outputs:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>output</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The filtered image.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+                                              
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Accessors</h3><ul><li><a href="accessor-audio_AudioCapture.html">audio/AudioCapture</a></li><li><a href="accessor-audio_AudioPlayer.html">audio/AudioPlayer</a></li><li><a href="accessor-audio_SwarmAcousticServiceGetdat.html">audio/SwarmAcousticServiceGetdat</a></li><li><a href="accessor-audio_SwarmAcousticServiceInfer.html">audio/SwarmAcousticServiceInfer</a></li><li><a href="accessor-audio_SwarmAcousticServiceQuery.html">audio/SwarmAcousticServiceQuery</a></li><li><a href="accessor-cameras_Camera.html">cameras/Camera</a></li><li><a href="accessor-cameras_Foscam.html">cameras/Foscam</a></li><li><a href="accessor-contextAware.html">contextAware</a></li><li><a href="accessor-contextAwareTest.html">contextAwareTest</a></li><li><a href="accessor-devices_Hue.html">devices/Hue</a></li><li><a href="accessor-GSNInterfaceTest.html">GSNInterfaceTest</a></li><li><a href="accessor-image_AprilTags.html">image/AprilTags</a></li><li><a href="accessor-image_ImageAnnotate.html">image/ImageAnnotate</a></li><li><a href="accessor-image_ImageFilter.html">image/ImageFilter</a></li><li><a href="accessor-image_MotionDetector.html">image/MotionDetector</a></li><li><a href="accessor-localization_Location.html">localization/Location</a></li><li><a href="accessor-net_Discovery.html">net/Discovery</a></li><li><a href="accessor-net_IPAddress.html">net/IPAddress</a></li><li><a href="accessor-net_REST.html">net/REST</a></li><li><a href="accessor-net_UDPSocket.html">net/UDPSocket</a></li><li><a href="accessor-net_VertxPublish.html">net/VertxPublish</a></li><li><a href="accessor-net_VertxSubscribe.html">net/VertxSubscribe</a></li><li><a href="accessor-net_WebSocketClient.html">net/WebSocketClient</a></li><li><a href="accessor-net_WebSocketServer.html">net/WebSocketServer</a></li><li><a href="accessor-robotics_LocationRosPublisher.html">robotics/LocationRosPublisher</a></li><li><a href="accessor-robotics_RangeSensor.html">robotics/RangeSensor</a></li><li><a href="accessor-robotics_RosPublisher.html">robotics/RosPublisher</a></li><li><a href="accessor-robotics_RosSubscriber.html">robotics/RosSubscriber</a></li><li><a href="accessor-services_FFT.html">services/FFT</a></li><li><a href="accessor-services_GeoCoder.html">services/GeoCoder</a></li><li><a href="accessor-services_StockTick.html">services/StockTick</a></li><li><a href="accessor-services_Weather.html">services/Weather</a></li><li><a href="accessor-util_Exec.html">util/Exec</a></li></ul><h3>Global</h3><ul><li><a href="global.html#error">error</a></li><li><a href="global.html#fire">fire</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#httpRequest">httpRequest</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#print">print</a></li><li><a href="global.html#readURL">readURL</a></li><li><a href="global.html#send">send</a></li><li><a href="global.html#setup">setup</a></li><li><a href="global.html#wrapup">wrapup</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a> on Wed Oct 21 2015 00:46:30 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

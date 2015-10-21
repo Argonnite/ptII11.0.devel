@@ -1,0 +1,684 @@
+public class IIRGUI.CGIIRGUI extends ptolemy.actor.TypedCompositeActor
+{
+    public ptolemy.kernel.attributes.VersionAttribute A_createdBy;
+    public ptolemy.domains.sdf.kernel.SDFDirector ASDF;
+    public ptolemy.actor.LocalClock ASDF_localClock;
+    public ptolemy.actor.parameters.SharedParameter ASDF_localClock_globalTimeResolution;
+    public ptolemy.data.expr.Parameter ASDF_localClock_clockRate;
+    public ptolemy.data.expr.Parameter ASDF_iterations;
+    public ptolemy.data.expr.Parameter ASDF_vectorizationFactor;
+    public ptolemy.data.expr.Parameter ASDF_allowDisconnectedGraphs;
+    public ptolemy.data.expr.Parameter ASDF_allowRateChanges;
+    public ptolemy.data.expr.Parameter ASDF_constrainBufferSizes;
+    public ptolemy.data.expr.Parameter ASDF_period;
+    public ptolemy.data.expr.Parameter ASDF_synchronizeToRealTime;
+    public ptolemy.data.expr.Parameter ASDF_startTime;
+    public ptolemy.data.expr.Parameter ASDF_stopTime;
+    public ptolemy.domains.sdf.kernel.SDFScheduler ASDF_Scheduler;
+    public ptolemy.data.expr.Parameter ASDF_Scheduler_constrainBufferSizes;
+    public ptolemy.kernel.util.Location ASDF__location;
+    public ptolemy.kernel.ComponentPort PIIR0_input;
+    public ptolemy.data.expr.Parameter AIIR0_input_defaultValue;
+    public ptolemy.kernel.ComponentPort PIIR0_output;
+    public ptolemy.data.expr.Parameter AIIR0_output_defaultValue;
+    public ptolemy.data.expr.Parameter AIIR0_numerator;
+    public ptolemy.data.expr.Parameter AIIR0_denominator;
+    public ptolemy.moml.Documentation AIIR0__doc;
+    public ptolemy.actor.gui.EditorPaneFactory AIIR0_editorFactory0;
+    public ptolemy.kernel.util.Location AIIR0__location;
+    public ptolemy.kernel.ComponentPort PPulse1_output;
+    public ptolemy.data.expr.Parameter APulse1_output_defaultValue;
+    public ptolemy.kernel.ComponentPort PPulse1_trigger;
+    public ptolemy.data.expr.Parameter APulse1_trigger_defaultValue;
+    public ptolemy.data.expr.SingletonParameter APulse1_trigger__showName;
+    public ptolemy.data.expr.Parameter APulse1_NONE;
+    public ptolemy.data.expr.Parameter APulse1_indexes;
+    public ptolemy.data.expr.Parameter APulse1_values;
+    public ptolemy.data.expr.Parameter APulse1_repeat;
+    public ptolemy.data.expr.Parameter APulse1_firingCountLimit;
+    public ptolemy.kernel.util.Location APulse1__location;
+    public ptolemy.kernel.ComponentPort PTest4_input;
+    public ptolemy.data.expr.Parameter ATest4_input_defaultValue;
+    public ptolemy.kernel.ComponentPort PTest4_output;
+    public ptolemy.data.expr.Parameter ATest4_output_defaultValue;
+    public ptolemy.data.expr.Parameter ATest4_correctValues;
+    public ptolemy.data.expr.Parameter ATest4_tolerance;
+    public ptolemy.actor.parameters.SharedParameter ATest4_requireAllCorrectValues;
+    public ptolemy.actor.parameters.SharedParameter ATest4_trainingMode;
+    public ptolemy.actor.gui.EditorPaneFactory ATest4_editorFactory0;
+    public ptolemy.kernel.util.Location ATest4__location;
+    public ptolemy.data.expr.Parameter Arelation3_width;
+    public ptolemy.data.expr.Parameter Arelation6_width;
+
+    public void __CGInit()
+    {
+        IIRGUI.CGIIRGUI r0;
+        ptolemy.kernel.util.Settable r2, r10, r13, r49, r64, r70, r75, r99, r105, r113, r138, r144, r149, r173, r180, r185, r187, r189, r191, r193, r195, r197, r199, r201, r203, r205, r208, r209, r210, r213, r215, r217, r219, r221, r222, r225, r227, r229, r230;
+        ptolemy.kernel.util.Attribute r9, r12, r48, r63, r69, r74, r98, r104, r112, r137, r143, r148, r172, r179, r184, r186, r188, r190, r192, r194, r196, r198, r200, r202, r204, r207, r212, r214, r216, r218, r220, r224, r226, r228;
+        ptolemy.actor.LocalClock r11;
+        ptolemy.actor.parameters.SharedParameter r14, r156, r159;
+        ptolemy.data.expr.Parameter r17, r20, r23, r26, r29, r32, r35, r38, r41, r44, r50, r65, r71, r76, r79, r100, r106, r114, r117, r120, r123, r126, r139, r145, r150, r153, r174, r181;
+        ptolemy.domains.sdf.kernel.SDFScheduler r47;
+        ptolemy.kernel.Port r61, r96, r135, r206, r211, r223;
+        ptolemy.actor.TypedIOPort r62, r68, r97, r103, r136, r142;
+        ptolemy.data.expr.SingletonParameter r109;
+        ptolemy.kernel.attributes.VersionAttribute tmp$593041964;
+        ptolemy.domains.sdf.kernel.SDFDirector tmp$1306763722;
+        ptolemy.kernel.util.Location tmp$1798744962, tmp$1436266145, tmp$2058204648, tmp$118722760;
+        ptolemy.actor.lib.IIR tmp$529874513;
+        ptolemy.moml.Documentation tmp$364819467;
+        ptolemy.actor.gui.EditorPaneFactory tmp$764789743, tmp$182733287;
+        ptolemy.actor.lib.Pulse tmp$1843807866;
+        ptolemy.actor.lib.Test tmp$814362288;
+        ptolemy.actor.TypedIORelation tmp$1058791062, tmp$754485985;
+        ptolemy.actor.IOPort tmp$456223916, tmp$234359538, tmp$1985817933, tmp$1953487464, $cseTmp0, $cseTmp1;
+
+        r0 := @this;
+
+        tmp$593041964 = new ptolemy.kernel.attributes.VersionAttribute(r0, "_createdBy");
+
+        r0.A_createdBy = tmp$593041964;
+
+        r2 = (ptolemy.kernel.util.Settable) tmp$593041964;
+
+        r2.setExpression("2.1-devel-2");
+
+        r2.validate();
+
+        tmp$1306763722 = new ptolemy.domains.sdf.kernel.SDFDirector(r0, "SDF");
+
+        r0.ASDF = tmp$1306763722;
+
+        r9 = r0.getAttribute("SDF.localClock");
+
+        r11 = (ptolemy.actor.LocalClock) r9;
+
+        r0.ASDF_localClock = r11;
+
+        r10 = (ptolemy.kernel.util.Settable) r9;
+
+        r10.setExpression("0.0");
+
+        r10.validate();
+
+        r12 = r0.getAttribute("SDF.localClock.globalTimeResolution");
+
+        r14 = (ptolemy.actor.parameters.SharedParameter) r12;
+
+        r0.ASDF_localClock_globalTimeResolution = r14;
+
+        r13 = (ptolemy.kernel.util.Settable) r12;
+
+        r13.setExpression("1E-10");
+
+        r13.validate();
+
+        r184 = r0.getAttribute("SDF.localClock.clockRate");
+
+        r17 = (ptolemy.data.expr.Parameter) r184;
+
+        r0.ASDF_localClock_clockRate = r17;
+
+        r185 = (ptolemy.kernel.util.Settable) r184;
+
+        r185.setExpression("1.0");
+
+        r185.validate();
+
+        r186 = r0.getAttribute("SDF.iterations");
+
+        r20 = (ptolemy.data.expr.Parameter) r186;
+
+        r0.ASDF_iterations = r20;
+
+        r187 = (ptolemy.kernel.util.Settable) r186;
+
+        r187.setExpression("5");
+
+        r187.validate();
+
+        r188 = r0.getAttribute("SDF.vectorizationFactor");
+
+        r23 = (ptolemy.data.expr.Parameter) r188;
+
+        r0.ASDF_vectorizationFactor = r23;
+
+        r189 = (ptolemy.kernel.util.Settable) r188;
+
+        r189.setExpression("1");
+
+        r189.validate();
+
+        r190 = r0.getAttribute("SDF.allowDisconnectedGraphs");
+
+        r26 = (ptolemy.data.expr.Parameter) r190;
+
+        r0.ASDF_allowDisconnectedGraphs = r26;
+
+        r191 = (ptolemy.kernel.util.Settable) r190;
+
+        r191.setExpression("false");
+
+        r191.validate();
+
+        r192 = r0.getAttribute("SDF.allowRateChanges");
+
+        r29 = (ptolemy.data.expr.Parameter) r192;
+
+        r0.ASDF_allowRateChanges = r29;
+
+        r193 = (ptolemy.kernel.util.Settable) r192;
+
+        r193.setExpression("false");
+
+        r193.validate();
+
+        r194 = r0.getAttribute("SDF.constrainBufferSizes");
+
+        r32 = (ptolemy.data.expr.Parameter) r194;
+
+        r0.ASDF_constrainBufferSizes = r32;
+
+        r195 = (ptolemy.kernel.util.Settable) r194;
+
+        r195.setExpression("true");
+
+        r195.validate();
+
+        r196 = r0.getAttribute("SDF.period");
+
+        r35 = (ptolemy.data.expr.Parameter) r196;
+
+        r0.ASDF_period = r35;
+
+        r197 = (ptolemy.kernel.util.Settable) r196;
+
+        r197.setExpression("0.0");
+
+        r197.validate();
+
+        r198 = r0.getAttribute("SDF.synchronizeToRealTime");
+
+        r38 = (ptolemy.data.expr.Parameter) r198;
+
+        r0.ASDF_synchronizeToRealTime = r38;
+
+        r199 = (ptolemy.kernel.util.Settable) r198;
+
+        r199.setExpression("false");
+
+        r199.validate();
+
+        r200 = r0.getAttribute("SDF.startTime");
+
+        r41 = (ptolemy.data.expr.Parameter) r200;
+
+        r0.ASDF_startTime = r41;
+
+        r201 = (ptolemy.kernel.util.Settable) r200;
+
+        r201.setExpression("");
+
+        r201.validate();
+
+        r202 = r0.getAttribute("SDF.stopTime");
+
+        r44 = (ptolemy.data.expr.Parameter) r202;
+
+        r0.ASDF_stopTime = r44;
+
+        r203 = (ptolemy.kernel.util.Settable) r202;
+
+        r203.setExpression("");
+
+        r203.validate();
+
+        r204 = r0.getAttribute("SDF.Scheduler");
+
+        r47 = (ptolemy.domains.sdf.kernel.SDFScheduler) r204;
+
+        r0.ASDF_Scheduler = r47;
+
+        r48 = r0.getAttribute("SDF.Scheduler.constrainBufferSizes");
+
+        r50 = (ptolemy.data.expr.Parameter) r48;
+
+        r0.ASDF_Scheduler_constrainBufferSizes = r50;
+
+        r49 = (ptolemy.kernel.util.Settable) r48;
+
+        r49.setExpression("constrainBufferSizes");
+
+        r49.validate();
+
+        tmp$1798744962 = new ptolemy.kernel.util.Location(tmp$1306763722, "_location");
+
+        r0.ASDF__location = tmp$1798744962;
+
+        r205 = (ptolemy.kernel.util.Settable) tmp$1798744962;
+
+        r205.setExpression("460.0, 315.0");
+
+        r205.validate();
+
+        tmp$529874513 = new ptolemy.actor.lib.IIR(r0, "IIR0");
+
+        r61 = tmp$529874513.getPort("input");
+
+        tmp$456223916 = (ptolemy.actor.IOPort) r61;
+
+        tmp$456223916.setInput(1);
+
+        r62 = (ptolemy.actor.TypedIOPort) r61;
+
+        r0.PIIR0_input = r62;
+
+        r63 = r0.getAttribute("IIR0.input.defaultValue");
+
+        r65 = (ptolemy.data.expr.Parameter) r63;
+
+        r0.AIIR0_input_defaultValue = r65;
+
+        r64 = (ptolemy.kernel.util.Settable) r63;
+
+        r64.setExpression("");
+
+        r64.validate();
+
+        r206 = tmp$529874513.getPort("output");
+
+        tmp$234359538 = (ptolemy.actor.IOPort) r206;
+
+        tmp$234359538.setOutput(1);
+
+        r68 = (ptolemy.actor.TypedIOPort) r206;
+
+        r0.PIIR0_output = r68;
+
+        r69 = r0.getAttribute("IIR0.output.defaultValue");
+
+        r71 = (ptolemy.data.expr.Parameter) r69;
+
+        r0.AIIR0_output_defaultValue = r71;
+
+        r70 = (ptolemy.kernel.util.Settable) r69;
+
+        r70.setExpression("");
+
+        r70.validate();
+
+        r74 = r0.getAttribute("IIR0.numerator");
+
+        r76 = (ptolemy.data.expr.Parameter) r74;
+
+        r0.AIIR0_numerator = r76;
+
+        r75 = (ptolemy.kernel.util.Settable) r74;
+
+        r75.setExpression("{1.0}");
+
+        r75.validate();
+
+        r207 = r0.getAttribute("IIR0.denominator");
+
+        r79 = (ptolemy.data.expr.Parameter) r207;
+
+        r0.AIIR0_denominator = r79;
+
+        r208 = (ptolemy.kernel.util.Settable) r207;
+
+        r208.setExpression("{1.0, 0.9}");
+
+        r208.validate();
+
+        tmp$364819467 = new ptolemy.moml.Documentation(tmp$529874513, "_doc");
+
+        r0.AIIR0__doc = tmp$364819467;
+
+        r209 = (ptolemy.kernel.util.Settable) tmp$364819467;
+
+        r209.setExpression("IIR filter");
+
+        r209.validate();
+
+        tmp$764789743 = new ptolemy.actor.gui.EditorPaneFactory(tmp$529874513, "editorFactory0");
+
+        r0.AIIR0_editorFactory0 = tmp$764789743;
+
+        tmp$1436266145 = new ptolemy.kernel.util.Location(tmp$529874513, "_location");
+
+        r0.AIIR0__location = tmp$1436266145;
+
+        r210 = (ptolemy.kernel.util.Settable) tmp$1436266145;
+
+        r210.setExpression("300.0, 225.0");
+
+        r210.validate();
+
+        tmp$1843807866 = new ptolemy.actor.lib.Pulse(r0, "Pulse1");
+
+        r96 = tmp$1843807866.getPort("output");
+
+        tmp$1985817933 = (ptolemy.actor.IOPort) r96;
+
+        tmp$1985817933.setOutput(1);
+
+        r97 = (ptolemy.actor.TypedIOPort) r96;
+
+        r0.PPulse1_output = r97;
+
+        r98 = r0.getAttribute("Pulse1.output.defaultValue");
+
+        r100 = (ptolemy.data.expr.Parameter) r98;
+
+        r0.APulse1_output_defaultValue = r100;
+
+        r99 = (ptolemy.kernel.util.Settable) r98;
+
+        r99.setExpression("");
+
+        r99.validate();
+
+        r211 = tmp$1843807866.getPort("trigger");
+
+        $cseTmp0 = (ptolemy.actor.IOPort) r211;
+
+        $cseTmp0.setInput(1);
+
+        $cseTmp0.setMultiport(1);
+
+        r103 = (ptolemy.actor.TypedIOPort) r211;
+
+        r0.PPulse1_trigger = r103;
+
+        r104 = r0.getAttribute("Pulse1.trigger.defaultValue");
+
+        r106 = (ptolemy.data.expr.Parameter) r104;
+
+        r0.APulse1_trigger_defaultValue = r106;
+
+        r105 = (ptolemy.kernel.util.Settable) r104;
+
+        r105.setExpression("");
+
+        r105.validate();
+
+        r212 = r0.getAttribute("Pulse1.trigger._showName");
+
+        r109 = (ptolemy.data.expr.SingletonParameter) r212;
+
+        r0.APulse1_trigger__showName = r109;
+
+        r213 = (ptolemy.kernel.util.Settable) r212;
+
+        r213.setExpression("true");
+
+        r213.validate();
+
+        r112 = r0.getAttribute("Pulse1.NONE");
+
+        r114 = (ptolemy.data.expr.Parameter) r112;
+
+        r0.APulse1_NONE = r114;
+
+        r113 = (ptolemy.kernel.util.Settable) r112;
+
+        r113.setExpression("0");
+
+        r113.validate();
+
+        r214 = r0.getAttribute("Pulse1.indexes");
+
+        r117 = (ptolemy.data.expr.Parameter) r214;
+
+        r0.APulse1_indexes = r117;
+
+        r215 = (ptolemy.kernel.util.Settable) r214;
+
+        r215.setExpression("{0, 1}");
+
+        r215.validate();
+
+        r216 = r0.getAttribute("Pulse1.values");
+
+        r120 = (ptolemy.data.expr.Parameter) r216;
+
+        r0.APulse1_values = r120;
+
+        r217 = (ptolemy.kernel.util.Settable) r216;
+
+        r217.setExpression("{1, 0}");
+
+        r217.validate();
+
+        r218 = r0.getAttribute("Pulse1.repeat");
+
+        r123 = (ptolemy.data.expr.Parameter) r218;
+
+        r0.APulse1_repeat = r123;
+
+        r219 = (ptolemy.kernel.util.Settable) r218;
+
+        r219.setExpression("false");
+
+        r219.validate();
+
+        r220 = r0.getAttribute("Pulse1.firingCountLimit");
+
+        r126 = (ptolemy.data.expr.Parameter) r220;
+
+        r0.APulse1_firingCountLimit = r126;
+
+        r221 = (ptolemy.kernel.util.Settable) r220;
+
+        r221.setExpression("0");
+
+        r221.validate();
+
+        tmp$2058204648 = new ptolemy.kernel.util.Location(tmp$1843807866, "_location");
+
+        r0.APulse1__location = tmp$2058204648;
+
+        r222 = (ptolemy.kernel.util.Settable) tmp$2058204648;
+
+        r222.setExpression("140.0, 225.0");
+
+        r222.validate();
+
+        tmp$814362288 = new ptolemy.actor.lib.Test(r0, "Test4");
+
+        r135 = tmp$814362288.getPort("input");
+
+        $cseTmp1 = (ptolemy.actor.IOPort) r135;
+
+        $cseTmp1.setInput(1);
+
+        $cseTmp1.setMultiport(1);
+
+        r136 = (ptolemy.actor.TypedIOPort) r135;
+
+        r0.PTest4_input = r136;
+
+        r137 = r0.getAttribute("Test4.input.defaultValue");
+
+        r139 = (ptolemy.data.expr.Parameter) r137;
+
+        r0.ATest4_input_defaultValue = r139;
+
+        r138 = (ptolemy.kernel.util.Settable) r137;
+
+        r138.setExpression("");
+
+        r138.validate();
+
+        r223 = tmp$814362288.getPort("output");
+
+        tmp$1953487464 = (ptolemy.actor.IOPort) r223;
+
+        tmp$1953487464.setOutput(1);
+
+        r142 = (ptolemy.actor.TypedIOPort) r223;
+
+        r0.PTest4_output = r142;
+
+        r143 = r0.getAttribute("Test4.output.defaultValue");
+
+        r145 = (ptolemy.data.expr.Parameter) r143;
+
+        r0.ATest4_output_defaultValue = r145;
+
+        r144 = (ptolemy.kernel.util.Settable) r143;
+
+        r144.setExpression("");
+
+        r144.validate();
+
+        r148 = r0.getAttribute("Test4.correctValues");
+
+        r150 = (ptolemy.data.expr.Parameter) r148;
+
+        r0.ATest4_correctValues = r150;
+
+        r149 = (ptolemy.kernel.util.Settable) r148;
+
+        r149.setExpression("{1.0, -0.9, 0.81, -0.729, 0.6561}");
+
+        r149.validate();
+
+        r224 = r0.getAttribute("Test4.tolerance");
+
+        r153 = (ptolemy.data.expr.Parameter) r224;
+
+        r0.ATest4_tolerance = r153;
+
+        r225 = (ptolemy.kernel.util.Settable) r224;
+
+        r225.setExpression("1.0E-9");
+
+        r225.validate();
+
+        r226 = r0.getAttribute("Test4.requireAllCorrectValues");
+
+        r156 = (ptolemy.actor.parameters.SharedParameter) r226;
+
+        r0.ATest4_requireAllCorrectValues = r156;
+
+        r227 = (ptolemy.kernel.util.Settable) r226;
+
+        r227.setExpression("true");
+
+        r227.validate();
+
+        r228 = r0.getAttribute("Test4.trainingMode");
+
+        r159 = (ptolemy.actor.parameters.SharedParameter) r228;
+
+        r0.ATest4_trainingMode = r159;
+
+        r229 = (ptolemy.kernel.util.Settable) r228;
+
+        r229.setExpression("false");
+
+        r229.validate();
+
+        tmp$182733287 = new ptolemy.actor.gui.EditorPaneFactory(tmp$814362288, "editorFactory0");
+
+        r0.ATest4_editorFactory0 = tmp$182733287;
+
+        tmp$118722760 = new ptolemy.kernel.util.Location(tmp$814362288, "_location");
+
+        r0.ATest4__location = tmp$118722760;
+
+        r230 = (ptolemy.kernel.util.Settable) tmp$118722760;
+
+        r230.setExpression("460.0, 135.0");
+
+        r230.validate();
+
+        tmp$1058791062 = new ptolemy.actor.TypedIORelation(r0, "relation3");
+
+        r172 = r0.getAttribute("relation3.width");
+
+        r174 = (ptolemy.data.expr.Parameter) r172;
+
+        r0.Arelation3_width = r174;
+
+        r173 = (ptolemy.kernel.util.Settable) r172;
+
+        r173.setExpression("1");
+
+        r173.validate();
+
+        tmp$754485985 = new ptolemy.actor.TypedIORelation(r0, "relation6");
+
+        r179 = r0.getAttribute("relation6.width");
+
+        r181 = (ptolemy.data.expr.Parameter) r179;
+
+        r0.Arelation6_width = r181;
+
+        r180 = (ptolemy.kernel.util.Settable) r179;
+
+        r180.setExpression("1");
+
+        r180.validate();
+
+        r62.insertLink(0, tmp$1058791062);
+
+        r68.insertLink(0, tmp$754485985);
+
+        r97.insertLink(0, tmp$1058791062);
+
+        r136.insertLink(0, tmp$754485985);
+
+        return;
+    }
+
+    public void <init>()
+    {
+        IIRGUI.CGIIRGUI this;
+
+        this := @this;
+
+        this.<init>();
+
+        this.__CGInit();
+
+        return;
+    }
+
+    public void <init>(ptolemy.kernel.util.Workspace)
+    {
+        ptolemy.kernel.util.Workspace parameter0;
+        IIRGUI.CGIIRGUI this;
+
+        this := @this;
+
+        parameter0 := @parameter0;
+
+        this.<init>(parameter0);
+
+        this.__CGInit();
+
+        return;
+    }
+
+    public void <init>(ptolemy.kernel.CompositeEntity, java.lang.String)
+    {
+        ptolemy.kernel.CompositeEntity parameter0;
+        java.lang.String parameter1;
+        IIRGUI.CGIIRGUI this;
+
+        this := @this;
+
+        parameter1 := @parameter1;
+
+        parameter0 := @parameter0;
+
+        this.<init>(parameter0, parameter1);
+
+        this.__CGInit();
+
+        return;
+    }
+}

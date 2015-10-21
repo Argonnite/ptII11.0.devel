@@ -1,0 +1,12 @@
+<property name="documentation" class="ptolemy.vergil.basic.DocAttribute">
+    <property name="author" class="ptolemy.kernel.util.StringAttribute" value="Long N.T. Le (longle1@illinois.edu)">
+    </property>
+    <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&lt;p&gt;Perform speech recognition on a array of acoustic events.&lt;/p&gt;">
+    </property>
+    <property name="an (port)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;array&quot;]}) array of acoustic events with only name and (ranking) score.">
+    </property>
+    <property name="an (port)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;array&quot;]}) array of acoustic events augmented by transcription.">
+    </property>
+    <property name="version" class="ptolemy.kernel.util.StringAttribute" value="$$Id: SwarmAcousticServiceInfer.js 292 2015-09-01 14:16:50Z eal $$">
+    </property>
+</property>

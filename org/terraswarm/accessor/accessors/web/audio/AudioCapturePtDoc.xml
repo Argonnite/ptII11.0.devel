@@ -1,0 +1,12 @@
+<property name="documentation" class="ptolemy.vergil.basic.DocAttribute">
+    <property name="author" class="ptolemy.kernel.util.StringAttribute" value="Ilge Akkya">
+    </property>
+    <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&lt;p&gt;Capture audio from the microphone. &lt;/p&gt;&#10;&lt;p&gt; This accessor requires the optional &apos;audio&apos; module, which may or may&#10; not be provided by an accessor host.&lt;/p&gt;">
+    </property>
+    <property name="trigger (port)" class="ptolemy.kernel.util.StringAttribute" value="undefined Input that triggers recording.">
+    </property>
+    <property name="signal (port)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;number&quot;]}) A sequence of numbers representing the captured audio signal.">
+    </property>
+    <property name="version" class="ptolemy.kernel.util.StringAttribute" value="$$Id: AudioCapture.js 292 2015-09-01 14:16:50Z eal $$">
+    </property>
+</property>

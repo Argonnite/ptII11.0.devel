@@ -1,0 +1,16 @@
+<property name="documentation" class="ptolemy.vergil.basic.DocAttribute">
+    <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&lt;p&gt;Return the range to an intruder&lt;/p&gt;">
+    </property>
+    <property name="currentPosition (port)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;JSON&quot;]}) The current position of the robot&#10;that is searching, typically { &quot;x&quot;: 0, &quot;y&quot;: 0}.">
+    </property>
+    <property name="rangeMeasurement (port)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;number&quot;]}) The range to the intruder.">
+    </property>
+    <property name="noiseSigma (parameter)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;number&quot;]}) A measurement of how noisy the signal is (?).  Default is 2.0.">
+    </property>
+    <property name="intruderKey (parameter)" class="ptolemy.kernel.util.StringAttribute" value="({names:[&quot;string&quot;]}) The key of the intruder in the key/value store.">
+    </property>
+    <property name="storeLocation (parameter)" class="ptolemy.kernel.util.StringAttribute" value="undefined The URL of the key/value store.  The type&#10;of this parameter is general so that in Ptolemy the value can be a&#10;Ptolemy parameter so that multiple instances of the actor can be&#10;easily configured.">
+    </property>
+    <property name="version" class="ptolemy.kernel.util.StringAttribute" value="$$Id: RangeSensor.js 292 2015-09-01 14:16:50Z eal $$">
+    </property>
+</property>
